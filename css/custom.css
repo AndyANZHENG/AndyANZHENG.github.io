@@ -88,3 +88,23 @@
 /* .clients-background{
     background-color: rgba(168, 168, 168, 0.3);
 } */
+
+
+/* section padding */
+.ftco-section.ftco-slant, .ftco-footer.ftco-slant {
+    padding: 7em 0 0 0;
+}
+
+/* subheadings */
+.allt-subheading{
+    color: rgba(37,167,170,0.8);
+    font-weight: bold;
+}
+
+/* banner background */
+.banner-bg-light{
+    background-color: rgba(255,255,255,0.6);
+}
+.banner-bg-dark{
+    background-color: rgba(35,35,35,0.5);
+}
