@@ -1,0 +1,110 @@
+/* ****** */
+/* NAVBAR */
+/* ****** */
+
+/* transparent dropdown menu color  */
+.dropdown-menu{
+  background-color: #fff0;
+  border: 1px solid rgba(0,0,0,.05);
+}
+
+/* dark background color for dropdown-item */
+.dropdown-item.nav-link:hover{
+  background-color: #468599;
+}
+
+/* light background color for dropdown-item when scroll down */
+.ftco-navbar-light.scrolled .nav-link{
+  background-color: #fff;
+}
+.ftco-navbar-light.scrolled .nav-link:hover{
+  background-color: #efefef;
+}
+
+/* padding top 30 */
+.nav-link.dropdown-toggle{
+  padding-top: 30px;
+}
+
+/* hover dropdown */
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+
+/* narbar text */
+.navbar-dark .navbar-nav .nav-link{
+  color:rgba(255,255,255,.7);
+}
+
+/* ******** */
+/* WHY ALLT */
+/* ******** */
+
+.ftco-counter .ftco-number{
+  font-size: 45px;
+}
+
+/* square */
+.square-wrap{
+  width: 100%;
+  padding-bottom: 100%; /* = width for a square aspect ratio */
+}
+
+.square {
+    float:left;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; /* = width for a 1:1 aspect ratio */
+    margin:1.66%;
+    overflow:hidden;
+    border: 5px solid red;
+}
+
+.content {
+    position:absolute;
+    height:100%; /* = 100% - 2*10% padding */
+    width:100%; /* = 100% - 2*5% padding */
+    padding: 5% 5%;
+    text-align:center;
+}
+.square .table{
+    display:table;
+    height:100%;
+    width:100%;
+}
+.square .table-cell{
+    display:table-cell;
+    vertical-align:middle;
+    height:100%;
+    width:100%;
+}
+
+/* clients background color */
+/* .clients-background{
+    background-color: rgba(168, 168, 168, 0.3);
+} */
+
+
+/* section padding */
+.ftco-section.ftco-slant, .ftco-footer.ftco-slant {
+    padding: 7em 0 0 0;
+}
+
+/* subheadings */
+.allt-subheading{
+    color: rgba(37,167,170,0.8);
+    font-weight: bold;
+}
+
+/* banner background */
+.banner-bg-light{
+    background-color: rgba(255,255,255,0.6);
+}
+.banner-bg-dark{
+    background-color: rgba(35,35,35,0.5);
+}
