@@ -108,3 +108,10 @@
 .banner-bg-dark{
     background-color: rgba(35,35,35,0.5);
 }
+
+
+/* slower showup */
+.ftco-animated {
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
+}

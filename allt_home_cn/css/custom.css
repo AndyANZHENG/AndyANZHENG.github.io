@@ -109,8 +109,9 @@
     background-color: rgba(35,35,35,0.5);
 }
 
-/* bmap */
-#bmap{
-    height: 500px;
-    width: 500px;
+
+/* slower showup */
+.ftco-animated {
+  -webkit-animation-duration: 1.5s;
+  animation-duration: 1.5s;
 }
