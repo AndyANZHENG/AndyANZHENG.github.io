@@ -1,0 +1,18 @@
+.allt-card{
+    border-width: 0px 0px 0px 10px;
+    border-color: rgb(33,150,243);
+    background-color: rgba(255, 255, 255, 1);
+
+}
+.card-header{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 20px;
+}
+body{
+    /* background-image: url("../img/bg.jpg"); */
+    background-size:100% auto;
+}
+
+input.step-input.invalid {
+  background-color: #ffdddd;
+}
