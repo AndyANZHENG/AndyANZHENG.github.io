@@ -108,3 +108,9 @@
 .banner-bg-dark{
     background-color: rgba(35,35,35,0.5);
 }
+
+/* bmap */
+#bmap{
+    height: 500px;
+    width: 500px;
+}
