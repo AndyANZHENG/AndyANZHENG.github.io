@@ -1,0 +1,38 @@
+.nav-logo{
+    display: inline-block;
+}
+.nav-menu li:hover > a, .nav-menu > .menu-active > a{
+    color:#25a7aa;
+}
+.nav-menu a{
+    font-weight: bold;
+    font-family:inherit;
+    font-size: 16px;
+    padding-top: 7px;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 0px;
+}
+body{
+    font-family: "Raleway", sans-serif;
+}
+.wms{
+    color: #49dde0;
+}
+.carousel-indicators .active {
+    background-color: #49dde0;
+}
+
+#intro .btn-get-started{
+    font-family: "Raleway", sans-serif;
+}
+#intro p {
+    width: 100%;
+}
+
+#mobile-nav ul li a{
+    font-family: "Raleway", sans-serif;
+}
+#mobile-nav ul li a:hover{
+    color: #25a7aa;
+}
