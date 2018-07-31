@@ -161,3 +161,7 @@ body {
 .logo{
     display: block;
 }
+
+.ftco-section.ftco-slant, .ftco-footer.ftco-slant{
+    padding-bottom: 2em;
+}
