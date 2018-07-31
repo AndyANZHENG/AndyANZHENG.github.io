@@ -880,6 +880,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 .hardware .portfolio-wrap {
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
   transition: 0.3s;
+  display: block;
 }
 
 .hardware .portfolio-wrap:hover {
@@ -887,16 +888,16 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .hardware .portfolio-item {
-  position: relative;
-  height: 250px;
+  /* position: relative; */
+  height: 300px;
   overflow: hidden;
 }
 
 .hardware .portfolio-item figure {
   background: #000;
   overflow: hidden;
-  height: 240px;
-  position: relative;
+  height: 300px;
+  /* position: relative; */
   border-radius: 4px 4px 0 0;
   margin: 0;
 }
@@ -908,7 +909,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .hardware .portfolio-item figure .link-preview, .hardware .portfolio-item figure .link-details {
   position: absolute;
-  display: inline-block;
+  display: block;
   visibility: hidden;
   line-height: 1;
   text-align: center;
