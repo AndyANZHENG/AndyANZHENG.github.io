@@ -10,12 +10,14 @@
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
     <link rel="manifest" href="img/favicon/site.webmanifest">
     <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="css/icomoon.css">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -49,13 +51,15 @@
                 <a href="#intro"><img class="nav-logo align-bottom" src="img/logo.png" width="64" height="30" alt="" title="" /><span class="h3 align-bottom"> |</span><span class="wms h5 font-weight-bold"> WMS</span></a>
             </div>
 
-            <nav id="nav-menu-container">
+            <nav id="nav-menu-container" class="my-navbar">
                 <ul class="nav-menu">
                     <li class="menu-active"><a href="#intro">INTRO</a></li>
-                    <li><a href="#about">OVERVIEW</a></li>
-                    <li><a href="#about">HARDWARE</a></li>
-                    <li><a href="#services">SOFTWARE</a></li>
-                    <li><a href="#portfolio">CONFIGURATION</a></li>
+                    <li><a href="#overview">OVERVIEW</a></li>
+                    <li><a href="#hardware">HARDWARE</a></li>
+                    <li><a href="#software">SOFTWARE</a></li>
+                    <li><a href="#our-experience">OUR EXPERIENCE</a></li>
+
+                    <!-- <li><a href="#configuration">CONFIGURATION</a></li> -->
                     <!-- <li><a href="#portfolio"></a></li> -->
                     <!-- <li class="menu-has-children"><a href="">Drop Down</a>
                         <ul>
@@ -92,7 +96,7 @@
                                 <div class="col-md-8 offset-md-2">
                                     <p class="h3">A weight-based real-time inventory tracking system that allows you to view the quantity information of parts obtained from electronic scales in real time.</p>
                                 </div>
-                                <a href="#featured-services" class="btn-get-started scrollto">Tell Me More</a>
+                                <a href="#overview" class="btn btn-get-started scrollto">Tell Me More</a>
                             </div>
                         </div>
                     </div>
@@ -105,7 +109,7 @@
                                 </div>
                                 <p class="h3">Introducing Smart IoT Electronic Scales</p>
                                 <p class="h5 font-italic">· High Sensitivity · Strenthened Plate · Easy-to-Detach</p>
-                                <a href="#featured-services" class="btn-get-started scrollto">Tell Me More</a>
+                                <a href="#hardware" class="btn btn-get-started scrollto">Tell Me More</a>
                             </div>
                         </div>
                     </div>
@@ -118,7 +122,7 @@
                                 </div>
                                 <p class="h3">Introducing Real-time Inventory Tracking System </p>
                                 <p class="h5 font-italic">· Real-time Display· User-friendly · Out-of-stock Alarm</p>
-                                <a href="#featured-services" class="btn-get-started scrollto">Tell Me More</a>
+                                <a href="#software" class="btn btn-get-started scrollto">Tell Me More</a>
                             </div>
                         </div>
                     </div>
@@ -141,15 +145,13 @@
 
 
     <main id="main">
-
-        <section id="services">
+        <section id="overview">
             <div class="container">
-
                 <header class="section-header wow fadeInUp">
-                    <h3>OVERVIEW</h3>
+                    <h3 class="">OVERVIEW</h3>
                     <!-- <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus, ad pro quaestio laboramus. Ei ubique vivendum pro. At ius nisl accusam lorenta zanos paradigno tridexa panatarel.</p> -->
                 </header>
-                <div class="row overview">
+                <div class="row">
                     <div class="col-md-12">
                         <img class="img-fluid" src="img/overview/system-flowchart.jpg" alt="">
                     </div>
@@ -158,324 +160,265 @@
 
                 <div class="row mt-5">
                     <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-                        <div class="icon"><i class="fas fa-warehouse"></i></div>
-                        <h4 class="title"><a href="">Inventory</a></h4>
+                        <h4 class="title"><a href=""><i class="fas fa-warehouse"></i> Inventory</a></h4>
                         <p class="description">Different types have differnent weights</p>
                     </div>
                     <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-                        <div class="icon"><i class="fas fa-balance-scale"></i></div>
-                        <h4 class="title"><a href="">IoT Electronic Scale</a></h4>
+                        <h4 class="title"><a href=""><i class="fas fa-balance-scale"></i> IoT Electronic Scale</a></h4>
                         <p class="description">Count number of parts and send information to server</p>
                     </div>
                     <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-                        <div class="icon"><i class="fas fa-desktop"></i></div>
-                        <h4 class="title"><a href="">Real time display</a></h4>
+                        <h4 class="title"><a href=""><i class="fas fa-desktop"></i> Real time display</a></h4>
                         <p class="description">Display number of parts left in warehouse</p>
                     </div>
                 </div>
 
-            </div>
-        </section>
-        <!-- #services -->
-
-        <!--==========================
-      Services Section
-    ============================-->
-        <section id="services">
-            <div class="container">
-
-                <header class="section-header wow fadeInUp">
-                    <h3>HARDWARE</h3>
-                    <!-- <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus, ad pro quaestio laboramus. Ei ubique vivendum pro. At ius nisl accusam lorenta zanos paradigno tridexa panatarel.</p> -->
-                </header>
-
-                <div class="row mt-5">
-
-                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-                        <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
-                        <h4 class="title"><a href="">System Flowchart</a></h4>
-                        <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-
-
+                <div class="row">
+                    <div class="col-md-12">
+                        <img class="img-fluid" src="img/overview/warehouse-chart.jpg" alt="">
                     </div>
-                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-                        <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
-                        <h4 class="title"><a href="">Dolor Sitema</a></h4>
-                        <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+                </div>
+
+                <div class="row about-cols">
+
+                    <div class="col-md-4 wow fadeInUp">
+                        <div class="about-col text-center">
+                            <div class="img">
+                                <img class="mb-5" src="" alt="">
+                                <!-- <img src="img/overview/shake-hand.jpeg" alt="" class="img-fluid"> -->
+                                <div class="icon"><i class="fas fa-layer-group"></i></div>
+                            </div>
+                            <h2 class="title"><a href="#">Third-party</a></h2>
+                            <p>
+                                Simple structure to change serial to TCP/IP
+                            </p>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
-                        <div class="icon"><i class="ion-ios-paper-outline"></i></div>
-                        <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                        <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="about-col text-center">
+                            <div class="img">
+                                <img class="mb-5" src="" alt="">
+                                <!-- <img src="img/overview/allt.jpg" alt="" class="img-fluid"> -->
+                                <div class="icon"><i class="fas fa-tablet"></i></div>
+                            </div>
+                            <h2 class="title"><a href="#">ALLT(IoT devices)</a></h2>
+                            <p>
+                                Bidirectional communication(Control, judgment)
+                            </p>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                        <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
-                        <h4 class="title"><a href="">Magni Dolores</a></h4>
-                        <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-                    </div>
-                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                        <div class="icon"><i class="ion-ios-barcode-outline"></i></div>
-                        <h4 class="title"><a href="">Nemo Enim</a></h4>
-                        <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-                    </div>
-                    <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
-                        <div class="icon"><i class="ion-ios-people-outline"></i></div>
-                        <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-                        <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+
+                    <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="about-col text-center">
+                            <div class="img">
+                                <img class="mb-5" src="" alt="">
+                                <!-- <img src="img/overview/cables.jpeg" alt="" class="img-fluid"> -->
+                                <div class="icon"><i class="fas fa-wifi"></i></div>
+                            </div>
+                            <h2 class="title"><a href="#">Network</a></h2>
+                            <p>
+                                Wired and wireless allow you to check the status from the field or outside (wireless requires additional network)
+                            </p>
+                        </div>
                     </div>
 
                 </div>
 
+
             </div>
         </section>
-        <!-- #services -->
 
-<section class="flowchart">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="img-wrapper">
-
-            </div>
-        </div>
-    </div>
-</section>
-        <!--==========================
-      Portfolio Section
-    ============================-->
-        <section id="portfolio" class="section-bg">
+        <section id="hardware" class="hardware">
             <div class="container">
-
-                <header class="section-header">
-                    <h3 class="section-title">Our Portfolio</h3>
+                <header class="section-header wow fadeInUp">
+                    <h3>HARDWARE</h3>
+                    <p>Smart IoT Electronic scales</p>
                 </header>
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <ul id="portfolio-flters">
-                            <li data-filter="*" class="filter-active">All</li>
-                            <li data-filter=".filter-app">App</li>
-                            <li data-filter=".filter-card">Card</li>
-                            <li data-filter=".filter-web">Web</li>
-                        </ul>
+                <div class="row mt-5 portfolio-container">
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
+                        <div class="portfolio-wrap">
+                            <figure>
+                                <img src="img/hardware/guide.png" class="img-fluid" alt="">
+                                <a href="img/hardware/guide.png" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-6 portfolio-item filter-app wow fadeInUp">
+                        <p class="h5 mt-md-5"> - Interference-free measurement between scales</p> <br>
+                        <p class="h5"> - Adding a guide to the gimbal to avoid collision between the trays</p> <br>
                     </div>
                 </div>
 
                 <div class="row portfolio-container">
-
                     <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
                         <div class="portfolio-wrap">
                             <figure>
-                                <img src="img/portfolio/app1.jpg" class="img-fluid" alt="">
-                                <a href="img/portfolio/app1.jpg" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                                <img src="img/hardware/replacement.png" class="img-fluid" alt="">
+                                <a href="img/hardware/replacement.png" data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
                                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
                             </figure>
-
-                            <div class="portfolio-info">
-                                <h4><a href="#">App 1</a></h4>
-                                <p>App</p>
-                            </div>
                         </div>
                     </div>
+                    <div class="col-lg-8 col-md-6 portfolio-item filter-app wow fadeInUp">
+                        <p class="h5 mt-md-5"> - Replacement time: 1 minute</p> <br>
+                        <p class="h5"> - Easy to detach structure</p> <br>
+                        <p class="h5"> - No reset required when replacing scales</p> <br>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="portfolio-wrap">
-                            <figure>
-                                <img src="img/portfolio/web3.jpg" class="img-fluid" alt="">
-                                <a href="img/portfolio/web3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 3" title="Preview"><i class="ion ion-eye"></i></a>
-                                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                            </figure>
-
-                            <div class="portfolio-info">
-                                <h4><a href="#">Web 3</a></h4>
-                                <p>Web</p>
+        <section id="software" class="software">
+            <div class="container">
+                <header class="section-header wow fadeInUp">
+                    <h3>SOFTWARE</h3>
+                    <p>Real-Time inventory tracking system</p>
+                </header>
+                <div class="row mt-5">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" src="img/software/allt_iot.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <!-- <h5 class="card-title font-weight-bold">Real-Time inventory tracking system</h5> -->
+                                <p class="card-text"><i class="fas fa-desktop"></i> Field-specialized software development through bolt and industrial materials expertise</p>
+                                <p class="card-text"><i class="fas fa-flask"></i> User-oriented UI/UX</p>
+                                <p class="card-text"><i class="fas fa-clock"></i> Out-of-stock alarm</p>
+                                <p class="card-text"><i class="fas fa-exclamation-circle"></i> Display alarm in user interface when measuring below set quantity</p>
+                                <p class="card-text"><i class="fas fa-shopping-cart"></i> Automatic ordering function</p>
+                                <p class="card-text">&nbsp<i class="fas fa-mouse-pointer"></i> Delivery of information set with a click of a button on the interface to the supplier</p>
                             </div>
+
                         </div>
                     </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="portfolio-wrap">
-                            <figure>
-                                <img src="img/portfolio/app2.jpg" class="img-fluid" alt="">
-                                <a href="img/portfolio/app2.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 2" title="Preview"><i class="ion ion-eye"></i></a>
-                                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                            </figure>
-
-                            <div class="portfolio-info">
-                                <h4><a href="#">App 2</a></h4>
-                                <p>App</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-                        <div class="portfolio-wrap">
-                            <figure>
-                                <img src="img/portfolio/card2.jpg" class="img-fluid" alt="">
-                                <a href="img/portfolio/card2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 2" title="Preview"><i class="ion ion-eye"></i></a>
-                                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                            </figure>
-
-                            <div class="portfolio-info">
-                                <h4><a href="#">Card 2</a></h4>
-                                <p>Card</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="portfolio-wrap">
-                            <figure>
-                                <img src="img/portfolio/web2.jpg" class="img-fluid" alt="">
-                                <a href="img/portfolio/web2.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 2" title="Preview"><i class="ion ion-eye"></i></a>
-                                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                            </figure>
-
-                            <div class="portfolio-info">
-                                <h4><a href="#">Web 2</a></h4>
-                                <p>Web</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="portfolio-wrap">
-                            <figure>
-                                <img src="img/portfolio/app3.jpg" class="img-fluid" alt="">
-                                <a href="img/portfolio/app3.jpg" class="link-preview" data-lightbox="portfolio" data-title="App 3" title="Preview"><i class="ion ion-eye"></i></a>
-                                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                            </figure>
-
-                            <div class="portfolio-info">
-                                <h4><a href="#">App 3</a></h4>
-                                <p>App</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
-                        <div class="portfolio-wrap">
-                            <figure>
-                                <img src="img/portfolio/card1.jpg" class="img-fluid" alt="">
-                                <a href="img/portfolio/card1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 1" title="Preview"><i class="ion ion-eye"></i></a>
-                                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                            </figure>
-
-                            <div class="portfolio-info">
-                                <h4><a href="#">Card 1</a></h4>
-                                <p>Card</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="portfolio-wrap">
-                            <figure>
-                                <img src="img/portfolio/card3.jpg" class="img-fluid" alt="">
-                                <a href="img/portfolio/card3.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 3" title="Preview"><i class="ion ion-eye"></i></a>
-                                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                            </figure>
-
-                            <div class="portfolio-info">
-                                <h4><a href="#">Card 3</a></h4>
-                                <p>Card</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-web wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="portfolio-wrap">
-                            <figure>
-                                <img src="img/portfolio/web1.jpg" class="img-fluid" alt="">
-                                <a href="img/portfolio/web1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Web 1" title="Preview"><i class="ion ion-eye"></i></a>
-                                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
-                            </figure>
-
-                            <div class="portfolio-info">
-                                <h4><a href="#">Web 1</a></h4>
-                                <p>Web</p>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
             </div>
         </section>
-        <!-- #portfolio -->
+        <!-- #services -->
+
+        <section id="our-experience" class="our-experience">
+            <div class="container mb-5">
+                <header class="section-header wow fadeInUp">
+                    <h3>OUR EXPERIENCE</h3>
+                    <p>We have experience of installing smart IoT digital scales and building systems</p>
+                </header>
+                <div class="row mb-3">
+                    <div class="col-md-6 mb-3">
+                        <div class="card">
+                            <img class="card-img-top" src="img/our-experience/1.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">ALLT Research and Development Office</h5>
+                                <p class="card-text">Electronic Scales</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="card">
+                            <img class="card-img-top" src="img/our-experience/2.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">ALLT Research and Development Office</h5>
+                                <p class="card-text">Electronic Scales</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6 mb-3">
+                        <div class="card">
+                            <img class="card-img-top" src="img/our-experience/3.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Comparative Studies on Effiency, Technology and Quality</h5>
+                                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="card">
+                            <img class="card-img-top" src="img/our-experience/4.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Setting up an user-oriented rack by analyzing products and warehouse specifications</h5>
+                                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6 mb-3">
+                        <div class="card">
+                            <img class="card-img-top" src="img/our-experience/5.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Bolt distribution expertise based on field work experience</h5>
+                                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
     </main>
 
-    <!--==========================
-    Footer
-  ============================-->
-    <footer id="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
 
-                    <div class="col-lg-3 col-md-6 footer-info">
-                        <h3>BizPage</h3>
-                        <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat
-                            mauris nunc congue.</p>
-                    </div>
 
-                    <div class="col-lg-3 col-md-6 footer-links">
-                        <h4>Useful Links</h4>
-                        <ul>
-                            <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
-                            <li><i class="ion-ios-arrow-right"></i> <a href="#">About us</a></li>
-                            <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
-                            <li><i class="ion-ios-arrow-right"></i> <a href="#">Terms of service</a></li>
-                            <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 footer-contact">
-                        <h4>Contact Us</h4>
-                        <p>
-                            A108 Adam Street <br> New York, NY 535022<br> United States <br>
-                            <strong>Phone:</strong> +1 5589 55488 55<br>
-                            <strong>Email:</strong> info@example.com<br>
-                        </p>
-
-                        <div class="social-links">
-                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-                            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+    <footer class="ftco-footer ftco-bg-dark">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="ftco-footer-widget mb-4">
+                                <h2 class="ftco-heading-2">Company</h2>
+                                <ul class="list-unstyled">
+                                    <li><a href="#section-home" class="py-2 d-block">Home</a></li>
+                                    <li><a href="#section-our-value" class="py-2 d-block">Our Value</a></li>
+                                    <li><a href="#section-why-allt" class="py-2 d-block">Why ALLT?</a></li>
+                                    <li><a href="#section-our-business" class="py-2 d-block">Our Business</a></li>
+                                    <li><a href="#section-wms-systems" class="py-2 d-block">WMS Systems</a></li>
+                                    <li><a href="#section-contact-us" class="py-2 d-block">Contact Us</a></li>
+                                </ul>
+                            </div>
                         </div>
-
+                        <div class="col-md">
+                            <div class="ftco-footer-widget mb-4">
+                                <h2 class="ftco-heading-2">Communities</h2>
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="py-2 d-block">Support</a></li>
+                                    <!-- <li><a href="#" class="py-2 d-block">Sharing is Caring</a></li>
+                                    <li><a href="#" class="py-2 d-block">Better Web</a></li>
+                                    <li><a href="#" class="py-2 d-block">Good Template</a></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="ftco-footer-widget mb-4">
+                            <ul class="ftco-footer-social list-unstyled float-md-right float-lft">
+                                <li><a href="#"><span class="icon-twitter"></span></a></li>
+                                <li><a href="#"><span class="icon-facebook"></span></a></li>
+                                <li><a href="#"><span class="icon-instagram"></span></a></li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 footer-newsletter">
-                        <h4>Our Newsletter</h4>
-                        <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
-                        <form action="" method="post">
-                            <input type="email" name="email"><input type="submit" value="Subscribe">
-                        </form>
+                    <div class="row">
+                        <div class="logo">
+                            <a href="#intro"><img class="mx-auto d-block" src="img/logo.png" width="128" height="60" alt="" title="" /></a>
+                        </div>
                     </div>
 
                 </div>
             </div>
-        </div>
-
-        <div class="container">
-            <div class="copyright">
-                &copy; Copyright <strong>BizPage</strong>. All Rights Reserved
-            </div>
-            <div class="credits">
-                <!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
-        -->
-                Best <a href="https://bootstrapmade.com/">Bootstrap Templates</a> by BootstrapMade
-            </div>
+            <!-- <div class="row">
+                <div class="col-md text-left">
+                    <p>&copy; Exclusivity 2017. All Rights Reserved. Made with <span class="icon-heart text-danger"></span> by <a href="https://free-template.co/">Free-Template.co</a></p>
+                </div>
+            </div> -->
         </div>
     </footer>
-    <!-- #footer -->
-
     <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
     <!-- JavaScript Libraries -->

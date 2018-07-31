@@ -30,7 +30,7 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
   margin: 0 0 20px 0;
   padding: 0;
@@ -102,7 +102,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
   line-height: 1;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 700;
   letter-spacing: 3px;
 }
@@ -245,13 +245,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #intro .btn-get-started {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 1px;
   display: inline-block;
   padding: 8px 32px;
-  border-radius: 50px;
   transition: 0.5s;
   margin: 10px;
   color: #fff;
@@ -346,7 +345,7 @@ h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
   display: inline-block;
   color: #fff;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 700;
   font-size: 13px;
   text-transform: uppercase;
@@ -451,7 +450,7 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
   outline: none;
   font-weight: 700;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 #mobile-nav ul li a:hover {
@@ -527,21 +526,10 @@ body.mobile-nav-active #mobile-nav-toggle {
   position: absolute;
   display: block;
   width: 120px;
-  height: 1px;
-  background: #ddd;
+  height: 2px;
+  background: #49dde0;
   bottom: 1px;
   left: calc(50% - 60px);
-}
-
-.section-header h3::after {
-  content: '';
-  position: absolute;
-  display: block;
-  width: 40px;
-  height: 3px;
-  background: #25a7aa;
-  bottom: 0;
-  left: calc(50% - 20px);
 }
 
 .section-header p {
@@ -600,14 +588,13 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 /* About Us Section
 --------------------------------*/
-#about {
-  background: url("../img/about-bg.jpg") center top no-repeat fixed;
+#overview {
   background-size: cover;
   padding: 60px 0 40px 0;
   position: relative;
 }
 
-#about::before {
+#overview::before {
   content: '';
   position: absolute;
   left: 0;
@@ -618,27 +605,27 @@ body.mobile-nav-active #mobile-nav-toggle {
   z-index: 9;
 }
 
-#about .container {
+#overview .container {
   position: relative;
   z-index: 10;
 }
 
-#about .about-col {
+#overview .about-col {
   background: #fff;
   border-radius: 0 0 4px 4px;
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
   margin-bottom: 20px;
 }
 
-#about .about-col .img {
+#overview .about-col .img {
   position: relative;
 }
 
-#about .about-col .img img {
+#overview .about-col .img img {
   border-radius: 4px 4px 0 0;
 }
 
-#about .about-col .icon {
+#overview .about-col .icon {
   width: 64px;
   height: 64px;
   padding-top: 8px;
@@ -653,22 +640,22 @@ body.mobile-nav-active #mobile-nav-toggle {
   transition: 0.3s;
 }
 
-#about .about-col i {
+#overview .about-col i {
   font-size: 36px;
   line-height: 1;
   color: #fff;
   transition: 0.3s;
 }
 
-#about .about-col:hover .icon {
+#overview .about-col:hover .icon {
   background-color: #fff;
 }
 
-#about .about-col:hover i {
+#overview .about-col:hover i {
   color: #25a7aa;
 }
 
-#about .about-col h2 {
+#overview .about-col h2 {
   color: #000;
   text-align: center;
   font-weight: 700;
@@ -677,15 +664,15 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin: 40px 0 12px 0;
 }
 
-#about .about-col h2 a {
+#overview .about-col h2 a {
   color: #000;
 }
 
-#about .about-col h2 a:hover {
+#overview .about-col h2 a:hover {
   color: #25a7aa;
 }
 
-#about .about-col p {
+#overview .about-col p {
   font-size: 14px;
   line-height: 24px;
   color: #333;
@@ -757,7 +744,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #call-to-action .cta-btn {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Raleway", sans-serif;
   text-transform: uppercase;
   font-weight: 500;
   font-size: 16px;
@@ -833,7 +820,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #facts .counters span {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: bold;
   font-size: 48px;
   display: block;
@@ -843,7 +830,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 #facts .counters p {
   padding: 0;
   margin: 0 0 20px 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 14px;
   color: #111;
 }
@@ -855,18 +842,18 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 /* Portfolio Section
 --------------------------------*/
-#portfolio {
-  padding: 60px 0;
+.hardware, .software, .our-experience {
+  padding: 30px 0;
 }
 
-#portfolio #portfolio-flters {
+.hardware #portfolio-flters {
   padding: 0;
   margin: 5px 0 35px 0;
   list-style: none;
   text-align: center;
 }
 
-#portfolio #portfolio-flters li {
+.hardware #portfolio-flters li {
   cursor: pointer;
   margin: 15px 15px 15px 0;
   display: inline-block;
@@ -881,31 +868,31 @@ body.mobile-nav-active #mobile-nav-toggle {
   transition: all 0.3s ease-in-out;
 }
 
-#portfolio #portfolio-flters li:hover, #portfolio #portfolio-flters li.filter-active {
+.hardware #portfolio-flters li:hover, .hardware #portfolio-flters li.filter-active {
   background: #25a7aa;
   color: #fff;
 }
 
-#portfolio #portfolio-flters li:last-child {
+.hardware #portfolio-flters li:last-child {
   margin-right: 0;
 }
 
-#portfolio .portfolio-wrap {
+.hardware .portfolio-wrap {
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.08);
   transition: 0.3s;
 }
 
-#portfolio .portfolio-wrap:hover {
+.hardware .portfolio-wrap:hover {
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.16);
 }
 
-#portfolio .portfolio-item {
+.hardware .portfolio-item {
   position: relative;
-  height: 360px;
+  height: 250px;
   overflow: hidden;
 }
 
-#portfolio .portfolio-item figure {
+.hardware .portfolio-item figure {
   background: #000;
   overflow: hidden;
   height: 240px;
@@ -914,12 +901,12 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin: 0;
 }
 
-#portfolio .portfolio-item figure:hover img {
+.hardware .portfolio-item figure:hover img {
   opacity: 0.4;
   transition: 0.3s;
 }
 
-#portfolio .portfolio-item figure .link-preview, #portfolio .portfolio-item figure .link-details {
+.hardware .portfolio-item figure .link-preview, .hardware .portfolio-item figure .link-details {
   position: absolute;
   display: inline-block;
   visibility: hidden;
@@ -932,41 +919,41 @@ body.mobile-nav-active #mobile-nav-toggle {
   transition: 0.2s;
 }
 
-#portfolio .portfolio-item figure .link-preview i, #portfolio .portfolio-item figure .link-details i {
+.hardware .portfolio-item figure .link-preview i, .hardware .portfolio-item figure .link-details i {
   padding-top: 6px;
   font-size: 22px;
   color: #333;
 }
 
-#portfolio .portfolio-item figure .link-preview:hover, #portfolio .portfolio-item figure .link-details:hover {
+.hardware .portfolio-item figure .link-preview:hover, .hardware .portfolio-item figure .link-details:hover {
   background: #25a7aa;
 }
 
-#portfolio .portfolio-item figure .link-preview:hover i, #portfolio .portfolio-item figure .link-details:hover i {
+.hardware .portfolio-item figure .link-preview:hover i, .hardware .portfolio-item figure .link-details:hover i {
   color: #fff;
 }
 
-#portfolio .portfolio-item figure .link-preview {
+.hardware .portfolio-item figure .link-preview {
   left: calc(50% - 38px);
   top: calc(50% - 18px);
 }
 
-#portfolio .portfolio-item figure .link-details {
+.hardware .portfolio-item figure .link-details {
   right: calc(50% - 38px);
   top: calc(50% - 18px);
 }
 
-#portfolio .portfolio-item figure:hover .link-preview {
+.hardware .portfolio-item figure:hover .link-preview {
   visibility: visible;
   left: calc(50% - 44px);
 }
 
-#portfolio .portfolio-item figure:hover .link-details {
+.hardware .portfolio-item figure:hover .link-details {
   visibility: visible;
   right: calc(50% - 44px);
 }
 
-#portfolio .portfolio-item .portfolio-info {
+.hardware .portfolio-item .portfolio-info {
   background: #fff;
   text-align: center;
   padding: 30px;
@@ -974,7 +961,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   border-radius: 0 0 3px 3px;
 }
 
-#portfolio .portfolio-item .portfolio-info h4 {
+.hardware .portfolio-item .portfolio-info h4 {
   font-size: 18px;
   line-height: 1px;
   font-weight: 700;
@@ -982,15 +969,15 @@ body.mobile-nav-active #mobile-nav-toggle {
   padding-bottom: 0;
 }
 
-#portfolio .portfolio-item .portfolio-info h4 a {
+.hardware .portfolio-item .portfolio-info h4 a {
   color: #333;
 }
 
-#portfolio .portfolio-item .portfolio-info h4 a:hover {
+.hardware .portfolio-item .portfolio-info h4 a:hover {
   color: #25a7aa;
 }
 
-#portfolio .portfolio-item .portfolio-info p {
+.hardware .portfolio-item .portfolio-info p {
   padding: 0;
   margin: 0;
   color: #b8b8b8;
@@ -1319,7 +1306,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   margin: 0 0 20px 0;
   padding: 2px 0 2px 10px;
   line-height: 1;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 700;
   letter-spacing: 3px;
   border-left: 4px solid #25a7aa;
@@ -1329,7 +1316,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-size: 14px;
   line-height: 24px;
   margin-bottom: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Raleway", sans-serif;
   color: #eee;
 }
 
