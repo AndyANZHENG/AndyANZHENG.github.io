@@ -19,7 +19,9 @@
             border-collapse: collapse;
             margin: 5px;
         }
-
+        td{
+            min-width: 40px;
+        }
         table,
         th,
         td {
@@ -31,12 +33,13 @@
             -ms-flex-wrap: wrap;
             flex-wrap: wrap;
         }
-        input{
-            width: 95%;
+        .table-basic-info tr td{
+            height: 24px;
         }
-        input.submit{
-            width: 100%;
+        .table-delivery td, .table-item td{
+            min-height: 24px;
         }
+
     </style>
 </head>
 
@@ -47,53 +50,54 @@
         </div>
         <form class="" action="index.html" method="post">
             <div class="row">
-                <table width="240" class="table-1">
+                <table width="240" class="table-basic-info">
                     <tr>
                         <td>PO NO.</td>
-                        <td><input type="text" name="" value=""></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Vender</td>
-                        <td><input type="text" name="" value=""></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Refer to</td>
-                        <td><input type="text" name="" value=""></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>TEL</td>
-                        <td><input type="text" name="" value=""></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>FAX</td>
-                        <td><input type="text" name="" value=""></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><label for="">Delivery</label> <input type="text" name="" value=""> </td>
+                        <td>Delivery</td>
+                        <td></td>
                     </tr>
                 </table>
 
-                <table width="329" height="163" class="table-2">
+                <table width="329" height="163" class="table-contact">
                     <tr>
                         <td>Registration NO.</td>
-                        <td><input type="text" name="" value=""></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Company Name/Representive</td>
-                        <td><input type="text" name="" value=""></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Address</td>
-                        <td><input type="text" name="" value=""></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>Person in Charge/Contact Info</td>
-                        <td><input type="text" name="" value=""></td>
+                        <td></td>
                     </tr>
                 </table>
             </div>
             <div class="row">
-                <table width="580">
+                <table width="580" class="table-delivery">
                     <tr>
                         <td>Delivery Type</td>
                         <td>Delivery Payment Terms</td>
@@ -102,17 +106,17 @@
                         <td>Contact Info</td>
                     </tr>
                     <tr>
-                        <td><input type="text" name="" value=""></td>
-                        <td><input type="text" name="" value=""></td>
-                        <td><input type="text" name="" value=""></td>
-                        <td><input type="text" name="" value=""></td>
-                        <td><input type="text" name="" value=""></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </table>
             </div>
             <div class="row">
-                <table width="580">
-                    <tr>
+                <table width="580" class="table-item">
+                    <tr >
                         <td>Item Name</td>
                         <td>Size</td>
                         <td>Material</td>
@@ -124,35 +128,32 @@
                         <td>Total</td>
                     </tr>
                     <tr>
-                        <td><input type="text" name="" value=""></td>
-                        <td><input type="text" name="" value=""></td>
-                        <td><input type="text" name="" value=""></td>
-                        <td><input type="text" name="" value=""></td>
-                        <td><input type="text" name="" value=""></td>
-                        <td><input type="text" name="" value=""></td>
-                        <td><input type="text" name="" value=""></td>
-                        <td><input type="text" name="" value=""></td>
-                        <td><input type="text" name="" value=""></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </table>
             </div>
             <div class="row">
-                <table width="580">
+                <table width="580" class="table-total">
                     <tr>
                         <td>Total QTY</td>
-                        <td><input type="text" name="" value=""> </td>
+                        <td> </td>
                         <td>Sub Total</td>
-                        <td><input type="text" name="" value=""> </td>
+                        <td> </td>
                         <td>Tax</td>
-                        <td><input type="text" name="" value=""> </td>
+                        <td> </td>
                         <td>Order Total</td>
-                        <td><input type="text" name="" value=""> </td>
+                        <td> </td>
                     </tr>
                 </table>
             </div>
-
-            <hr>
-            <input type="submit" name="" value="submit" class="submit">
         </form>
     </div>
 </body>
