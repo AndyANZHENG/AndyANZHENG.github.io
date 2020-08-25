@@ -1,7 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Andy An's blog]]></title><description><![CDATA[A blog written by an average engineer]]></description><link>https://andyan.dev</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 28 Jul 2020 14:47:56 GMT</lastBuildDate><item><title><![CDATA[The Hardest Thing To Do (for me, as a human)]]></title><description><![CDATA[To my younger self, Having genuine interests or passion for something or many things is a great thing. But once you are passionate about…]]></description><link>https://andyan.dev/hardest-thing-to-do/</link><guid isPermaLink="false">https://andyan.dev/hardest-thing-to-do/</guid><pubDate>Tue, 28 Jul 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;To my younger self,&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Andy's Learning Journal]]></title><description><![CDATA[A blog written by an average engineer]]></description><link>https://andyan.dev</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 25 Aug 2020 16:24:52 GMT</lastBuildDate><item><title><![CDATA[Create your first sharable eslint config]]></title><description><![CDATA[Problem If you have been coding in JavaScript for a while, you might have done something that I always do before writing the first line of…]]></description><link>https://andyan.dev/reusable-linter-config/</link><guid isPermaLink="false">https://andyan.dev/reusable-linter-config/</guid><pubDate>Sun, 23 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Problem&lt;/h2&gt;
+&lt;p&gt;If you have been coding in JavaScript for a while, you might have done something that I always do before writing the first line of actual code - setting up eslint and prettier. It does not take long but sometimes I wish I could use my old configs without having to go back my old repo, copying and pasting. Using it as a npm package might be the perfect solution. Here is how you can use your eslint config as a npm package with some flexibility.&lt;/p&gt;
+&lt;p&gt;This is even more useful if you work in a team and you want everyone to share the same configurations.&lt;/p&gt;
+&lt;h2&gt;End Result&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-json&quot;&gt;// .eslintrc in your new project root
+
+// your npm package is @yourscope/eslint-config
+{
+  &quot;extends&quot;: [
+    &quot;@yourscope&quot; // same as @yourscope/eslint-config. eslint is smart enough to figure out the package name
+    &quot;@yourscope/eslint-config/react&quot; // only use react specific config
+    &quot;@yourscope/eslint-config/gatsby&quot; // only use gatsby specific config
+    &quot;@yourscope/eslint-config/&amp;#x3C;anything&gt;&quot; // &amp;#x3C;anything&gt; is up to your package structure
+  ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Steps&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Set up your eslint-config repo&lt;/li&gt;
+&lt;li&gt;Publish it to npm&lt;/li&gt;
+&lt;li&gt;Use it in your new project&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3&gt;1. Set up your eslint-config repo&lt;/h3&gt;
+&lt;p&gt;1.0 Go npmjs.com to register an account. NPM username will be refered as &lt;code&gt;my-npm-username&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;1.1 Create a directory and initialize the project&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;mkdir eslint-config &amp;#x26;&amp;#x26; cd $_
+npm init --scope=@my-npm-username -y
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;1.2 Install eslint and any config or plugin you may need. Let&apos;s just install eslint for now.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;npm i eslint
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;1.3 Write your configurations in &lt;code&gt;eslint-config/index.js&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;module.exports = {
+  rules: {
+    quotes: [2, &apos;single&apos;],
+  },
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now we here ready to publish it to npm.&lt;/p&gt;
+&lt;h3&gt;2. Publish it to npm&lt;/h3&gt;
+&lt;p&gt;run&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;npm publish --access public
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;3. Use it in your new project&lt;/h3&gt;
+&lt;p&gt;Now go to your new project and install the npm package you just published (assuming that package.json exists).&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;cd new-project
+npm i @my-npm-username/eslint-config
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;// In your .eslintrc
+module.exports = {
+  extends: [&apos;@my-npm-username&apos;],
+};
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Congrats! Now if you need different configuration for another project, you can always add another file to &lt;code&gt;@my-npm-username/eslint-config&lt;/code&gt; and export that file then use it with&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;extends: [&apos;@my-npm-username/eslint-config/some-config&apos;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;Read more&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://eslint.org/docs/developer-guide/shareable-configs&quot;&gt;Eslint&lt;/a&gt; has a more comprehensive guide on this if you are interested in a more comprehensive version of this.&lt;/p&gt;
+&lt;p&gt;Also read more on publishing scoped npm package &lt;a href=&quot;https://docs.npmjs.com/creating-and-publishing-scoped-public-packages&quot;&gt;here&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[The Hardest Thing To Do (for me, as a human)]]></title><description><![CDATA[To my younger self, Having genuine interests or passion for something or many things is a great thing. But once you are passionate about…]]></description><link>https://andyan.dev/hardest-thing-to-do/</link><guid isPermaLink="false">https://andyan.dev/hardest-thing-to-do/</guid><pubDate>Tue, 28 Jul 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;To my younger self,&lt;/p&gt;
 &lt;p&gt;Having genuine interests or passion for something or many things is a great thing. But once you are passionate about something, does that mean you will be good at it? Or even able to make a living off it? Maybe. Maybe not.&lt;/p&gt;
-&lt;p&gt;I grew up having interests in a lot of things, ping pong (not surprisingly as a Chinese), basketball, dancing, solving rubik’s cube, etc. But over the years I learned that it was almost impossible for me to keep being passionate about the same thing for a long time. I might intensively learn how to a rubik’s cube in 2 weeks and get to a point where I can show off to my classmate and be kind of proud of myself. Then I will stop. Maybe move onto something else. Maybe never pick up a rubik’s cube again. It is totally fine for small hobbies like that because we have many other things to try. But while I was thinking that, I was approaching graduation in high school and still did not what I should do for a living. Perfect way to put this will be that I kind of like doing A, but I cannot do A forever, nor do I think that I am talented. Then after a blink of an eye, I graduated university and started working. When in university, one thing I was certain about was that I sucked at education psychology and anything that requires me to memorize ton of text. Also, when it came to science subject, I was (or forced myself to be) kind of interested in every concept first but I did terrible in tests. There was no dedication or spirit in me that told me just do what it takes, like it or not.&lt;/p&gt;
-&lt;p&gt;Essentially the world does not care if you are passionate about something. Put in the work. Get what you want. Maybe you will like the process. Maybe you will hate the process. If you don’t feel like doing the thing you are supposed to do, think like a machine. Don’t be scammed by the 0.001% actual passionate people’s talk about having to be 24/7 excited about the same thing to be successful.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Why Blogs?]]></title><description><![CDATA[As I am typing the first sentence of my first blog ever, I still cannot believe it that I am doing something I absolutely hated when I was…]]></description><link>https://andyan.dev/why-blogs/</link><guid isPermaLink="false">https://andyan.dev/why-blogs/</guid><pubDate>Thu, 23 Jul 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;As I am typing the first sentence of my first blog ever, I still cannot believe it that I am doing something I absolutely hated when I was young. Writing was never my thing and I sucked at it. Maybe there was too much pressure and the goal was too clear - getting a good score to make parents proud. That 600 or 800 words requirement was my worst nightmare.&lt;/p&gt;
-&lt;p&gt;Last time I considered writing blogs was 3 years ago. I even set up a WordPress website and bought a domain on Bluehost. It was stupid that I paid that much money for a CMS with many fancy features only few of which are actually useful for me. I did not know what I was doing and I did not even publish one blog with it as I lost interests. Nowadays I would much prefer a minimal site but with great extensibility and most importantly, as cheap as possible. I guess that is because skills and knowledge give me the freedom or ability to do it in the exact way I want and same with many other things. It also saves A LOT of money. (Running a site like this is almost for free. Just need to pay for a domain such as &lt;code class=&quot;language-text&quot;&gt;andyan.dev&lt;/code&gt;)&lt;/p&gt;
+&lt;p&gt;I grew up having interests in a lot of things, ping pong (not surprisingly as a Chinese), basketball, dancing, solving rubik&apos;s cube, etc. But over the years I learned that it was almost impossible for me to keep being passionate about the same thing for a long time. I might intensively learn how to a rubik&apos;s cube in 2 weeks and get to a point where I can show off to my classmate and be kind of proud of myself. Then I will stop. Maybe move onto something else. Maybe never pick up a rubik&apos;s cube again. It is totally fine for small hobbies like that because we have many other things to try. But while I was thinking that, I was approaching graduation in high school and still did not what I should do for a living. Perfect way to put this will be that I kind of like doing A, but I cannot do A forever, nor do I think that I am talented. Then after a blink of an eye, I graduated university and started working. When in university, one thing I was certain about was that I sucked at education psychology and anything that requires me to memorize ton of text. Also, when it came to science subject, I was (or forced myself to be) kind of interested in every concept first but I did terrible in tests. There was no dedication or spirit in me that told me just do what it takes, like it or not.&lt;/p&gt;
+&lt;p&gt;Essentially the world does not care if you are passionate about something. Put in the work. Get what you want. Maybe you will like the process. Maybe you will hate the process. If you don&apos;t feel like doing the thing you are supposed to do, think like a machine. Don&apos;t be scammed by the 0.001% actual passionate people&apos;s talk about having to be 24/7 excited about the same thing to be successful.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Why Blogs?]]></title><description><![CDATA[As I am typing the first sentence of my first blog ever, I still cannot believe it that I am doing something I absolutely hated when I was…]]></description><link>https://andyan.dev/why-blogs/</link><guid isPermaLink="false">https://andyan.dev/why-blogs/</guid><pubDate>Thu, 23 Jul 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;As I am typing the first sentence of my first blog ever, I still cannot believe it that I am doing something I absolutely hated when I was young. Writing was never my thing and I sucked at it. Maybe there was too much pressure and the goal was too clear - getting a good score to make parents proud. That 600 or 800 words requirement was my worst nightmare.&lt;/p&gt;
+&lt;p&gt;Last time I considered writing blogs was 3 years ago. I even set up a WordPress website and bought a domain on Bluehost. It was stupid that I paid that much money for a CMS with many fancy features only few of which are actually useful for me. I did not know what I was doing and I did not even publish one blog with it as I lost interests. Nowadays I would much prefer a minimal site but with great extensibility and most importantly, as cheap as possible. I guess that is because skills and knowledge give me the freedom or ability to do it in the exact way I want and same with many other things. It also saves A LOT of money. (Running a site like this is almost for free. Just need to pay for a domain such as &lt;code&gt;andyan.dev&lt;/code&gt;)&lt;/p&gt;
 &lt;p&gt;Later I may reflect on things that I often think about but never had a chance to talk about, write about memorable time I spent with other people, or some technology I am interested in.&lt;/p&gt;
-&lt;p&gt;Maybe I will add a comment section later. Maybe also a dark theme switcher. Maybe…&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;Maybe I will add a comment section later. Maybe also a dark theme switcher. Maybe...&lt;/p&gt;</content:encoded></item></channel></rss>
