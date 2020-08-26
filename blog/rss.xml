@@ -1,4 +1,222 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Andy's Learning Journal]]></title><description><![CDATA[A blog written by an average engineer]]></description><link>https://andyan.dev</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 25 Aug 2020 16:45:02 GMT</lastBuildDate><item><title><![CDATA[Create your first sharable eslint config]]></title><description><![CDATA[Problem If you have been coding in JavaScript for a while, you might have done something that I always do before writing the first line of…]]></description><link>https://andyan.dev/reusable-linter-config/</link><guid isPermaLink="false">https://andyan.dev/reusable-linter-config/</guid><pubDate>Sun, 23 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Problem&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Andy's Learning Journal]]></title><description><![CDATA[A blog written by an average engineer]]></description><link>https://andyan.dev</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 26 Aug 2020 17:31:40 GMT</lastBuildDate><item><title><![CDATA[Type support for JS: When and Why]]></title><description><![CDATA[Problem If you write JavaScript, the most common error is very likely to be something along the lines of "Cannot read property 'foo' of…]]></description><link>https://andyan.dev/type-javascript/</link><guid isPermaLink="false">https://andyan.dev/type-javascript/</guid><pubDate>Wed, 26 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Problem&lt;/h2&gt;
+&lt;p&gt;If you write JavaScript, the most common error is very likely to be something along the lines of &lt;code&gt;&quot;Cannot read property &apos;foo&apos; of undefined&quot;&lt;/code&gt;. This happens probably when you try to access &lt;code&gt;foo&lt;/code&gt; attribute on an undefined variable (that you assumed should be defined).&lt;/p&gt;
+&lt;p&gt;In fact, &lt;a href=&quot;https://rollbar.com/blog/top-10-javascript-errors/&quot;&gt;7 out of 10 most common JavaScript errors are type errors&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Some of these errors has happened to me a million times and every time it happens, I almost know why it happened but cannot pinpoint the issue. It takes me between 10 seconds to 10 mins to figure out where the error comes from depending on the size of the code base. 10 seconds to 10 mins might not seem like a lot of time but it gets worse when the code base is large and logic is complex.&lt;/p&gt;
+&lt;p&gt;Even worse, there might be some hidden data type bugs and you might not have a chance to see errors like this (since you are just guessing and hoping correct types will be passed around) before you ship the software to production. And some day you software crashes becuase you didn&apos;t consider all the test cases and corner cases and suddenly you have a lot more pressure and need to fix it urgently.&lt;/p&gt;
+&lt;h2&gt;Solution(s)&lt;/h2&gt;
+&lt;p&gt;Depending on the size of the software you are writing, adding a type system (and often some other stuff) on top of JavaScript can be a total overkill. For instance, this blog site that I built is 100% JavaScript (with Gatsby) and I am not planning to switch any time soon.&lt;/p&gt;
+&lt;p&gt;However, if I want to build some more features into this site (e.g. turn it into a LMS) and as the code base gets bigger, I will consider using the following options.&lt;/p&gt;
+&lt;h3&gt;&lt;a href=&quot;https://flow.org/en/docs/&quot;&gt;Flow&lt;/a&gt;&lt;/h3&gt;
+&lt;img width=&quot;70%&quot; style=&quot;max-width: 250px;&quot; alt=&quot;flow&quot; src=&quot;https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fflow.org%2Fstatic%2Fogp-1200x630-1.png&amp;amp;f=1&amp;amp;nofb=1&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;Developed and backed by Facebook&lt;/li&gt;
+&lt;li&gt;Written mainly in OCaml&lt;/li&gt;
+&lt;li&gt;Relies on Babel&lt;/li&gt;
+&lt;li&gt;Popular in React projects&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Code Samples&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;/* static type annotations */
+// @flow
+function square(n: number): number {
+  return n * n;
+}
+square(&apos;2&apos;); // ----------&gt; Error!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;/* type inference */
+// @flow
+function square(n) {
+  return n * n; // -------&gt; Error!
+}
+square(&apos;2&apos;);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;/* type variance */
+class General {}
+class MoreSpecific extends General {}
+class MostSpecific extends MoreSpecific {}
+
+class BaseClass {
+  method(value: MoreSpecific): MoreSpecific { ... }
+}
+
+// More general type for input is good
+class SubClass extends BaseClass {
+  method(value: General): MoreSpecific { ... }
+}
+
+// More specific type for output is good
+class SubClass extends BaseClass {
+  method(value: MoreSpecific): MostSpecific { ... }
+}
+
+// Otherwise, more specific input or more general output is bad
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;/* nominal (name based) or structure (shape based) */
+
+// nominal
+class Foo {
+  method(input: string) {
+    /* ... */
+  }
+}
+class Bar {
+  method(input: string) {
+    /* ... */
+  }
+}
+let foo: Foo = new Bar(); // Error!
+
+// structure
+class Foo {
+  method(input: string) {
+    /* ... */
+  }
+}
+class Bar {
+  method(input: string) {
+    /* ... */
+  }
+}
+let foo: Foo = new Bar(); // Works!
+
+// In flow,
+// functions and objects are structurally typed
+// Classes are nominally typed
+
+// ...many more &quot;features&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3&gt;&lt;a href=&quot;https://www.typescriptlang.org/&quot;&gt;TypeScript&lt;/a&gt;&lt;/h3&gt;
+&lt;img width=&quot;50%&quot; style=&quot;max-width: 250px;&quot; alt=&quot;typescript&quot; src=&quot;https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fraw.githubusercontent.com%2Fremojansen%2Flogo.ts%2Fmaster%2Fts.png&amp;amp;f=1&amp;amp;nofb=1&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;Developed and backed by Microsoft&lt;/li&gt;
+&lt;li&gt;Superset of JavaScript&lt;/li&gt;
+&lt;li&gt;Has its compiler &lt;code&gt;tsc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Popular in Angular/React projects&lt;/li&gt;
+&lt;li&gt;Syntax similar to flow&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;&lt;a href=&quot;https://reasonml.github.io/&quot;&gt;ReasonML&lt;/a&gt;/ReScript - A less known one&lt;/h3&gt;
+&lt;img width=&quot;50%&quot; style=&quot;max-width: 250px;&quot; alt=&quot;typescript&quot; src=&quot;https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Favatars1.githubusercontent.com%2Fu%2F20414525%3Fs%3D200%26v%3D4&amp;amp;f=1&amp;amp;nofb=1&quot;&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ReScript is the language for folks who don&apos;t necessarily love JavaScript, but who still acknowledge its importance.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;Developed and backed by Facebook&lt;/li&gt;
+&lt;li&gt;Subset of JavaScript, looks less like JavaScript compared to other options&lt;/li&gt;
+&lt;li&gt;Relies on &lt;a href=&quot;https://rescript-lang.org/docs/manual/latest/introduction&quot;&gt;ReScript&lt;/a&gt; (previously BuckcleScript, initially developed by Bloomberg) to compile to &lt;code&gt;.js&lt;/code&gt; files&lt;/li&gt;
+&lt;li&gt;Uses Ninjs as its build system&lt;/li&gt;
+&lt;li&gt;Messager.com is written in Reason&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Difference to JavaScript (&lt;a href=&quot;https://rescript-lang.org/docs/manual/latest/overview#common-features-js-output&quot;&gt;see it on their website&lt;/a&gt;)&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Feature&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;JavaScript Output&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&quot;Hello&quot;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&quot;Hello&quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;String Interpolation&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Hello ${message}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&quot;Hello &quot; + message&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Character (disrecommended)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&apos;x&apos;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;120 (char code)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;23, -23&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;23, -23&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Float&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;23.0, -23.0&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;23.0, -23.0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Integer Addition&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;23 + 1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;23 + 1&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Float Addition&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;23.0 +. 1.0&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;23.0 + 1.0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Integer Division/Multiplication&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2 / 23 * 1&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2 / 23 * 1&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Float Division/Multiplication&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2.0 /. 23.0 *. 1.0&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2.0 / 23.0 * 1.0&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Float Exponentiation&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;2.0 ** 3.0&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Math.pow(3, 4)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;String Concatenation&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&quot;Hello &quot; ++ &quot;World&quot;&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&quot;Hello &quot; + &quot;World&quot;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Comparison&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&gt;, &amp;#x3C;, &gt;=, &amp;#x3C;=&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&gt;, &amp;#x3C;, &gt;=, &amp;#x3C;=&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Boolean operation&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;!, &amp;#x26;&amp;#x26;, | |&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;!, &amp;#x26;&amp;#x26;, | |&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Shallow and deep Equality&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;===, ==&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;===, ==&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;List (disrecommended)&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;list{1, 2, 3}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{hd: 1, tl: {hd: 2, tl: {hd: 3, tl: 0}}}&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;List Prepend&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;list{a1, a2, ...oldList}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;{hd: a1, tl: {hd: a2, tl: theRest}}&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Array&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;[1, 2, 3]&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;[1, 2, 3]&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Record&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;type t = {b: int}; let a = {b: 10}&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;var a = {b: 10}&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Multiline Comment&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;/* Comment here */&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Not in output&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Single line Comment&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;// Comment here&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;Not in output&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</content:encoded></item><item><title><![CDATA[Create your first sharable eslint config]]></title><description><![CDATA[Problem If you have been coding in JavaScript for a while, you might have done something that I always do before writing the first line of…]]></description><link>https://andyan.dev/reusable-linter-config/</link><guid isPermaLink="false">https://andyan.dev/reusable-linter-config/</guid><pubDate>Sun, 23 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Problem&lt;/h2&gt;
 &lt;p&gt;If you have been coding in JavaScript for a while, you might have done something that I always do before writing the first line of actual code - setting up eslint and prettier. It does not take long but sometimes I wish I could use my old configs without having to go back my old repo, copying and pasting. Using it as a npm package might be the perfect solution. Here is how you can use your eslint config as a npm package with some flexibility.&lt;/p&gt;
 &lt;p&gt;This is even more useful if you work in a team and you want everyone to share the same configurations.&lt;/p&gt;
 &lt;h2&gt;End Result&lt;/h2&gt;
