@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Andy's Learning Journal]]></title><description><![CDATA[A blog written by an average engineer]]></description><link>https://andyan.dev</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 26 Aug 2020 17:31:40 GMT</lastBuildDate><item><title><![CDATA[Type support for JS: When and Why]]></title><description><![CDATA[Problem If you write JavaScript, the most common error is very likely to be something along the lines of "Cannot read property 'foo' of…]]></description><link>https://andyan.dev/type-javascript/</link><guid isPermaLink="false">https://andyan.dev/type-javascript/</guid><pubDate>Wed, 26 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Problem&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Andy's Learning Journal]]></title><description><![CDATA[A blog written by an average engineer]]></description><link>https://andyan.dev</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 12 Jan 2021 14:43:32 GMT</lastBuildDate><item><title><![CDATA[OCaml(JavaScript) => ReScript ?]]></title><description><![CDATA[Background So a few days ago when I am looking for a type system for JavaScript other than the well-known fast-growing TypeScript and also…]]></description><link>https://andyan.dev/try-rescript/</link><guid isPermaLink="false">https://andyan.dev/try-rescript/</guid><pubDate>Thu, 27 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Background&lt;/h2&gt;
+&lt;p&gt;So a few days ago when I am looking for a type system for JavaScript other than the well-known fast-growing &lt;code&gt;TypeScript&lt;/code&gt; and also widely used &lt;code&gt;Flow&lt;/code&gt;, I found this interesting meta language called &lt;code&gt;ReasonML&lt;/code&gt;. Initially I thought it might have something to do &lt;code&gt;Reactjs&lt;/code&gt; as it was introduced at a react conf. It turns out that it has nothing to do &lt;code&gt;Reactjs&lt;/code&gt;. So what is it? As discribed on its &lt;a href=&quot;https://rescript-lang.org/docs/manual/latest/introduction&quot;&gt;website&lt;/a&gt;,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ReScript covers only a curated subset of JavaScript. For example, we emphasize plain data + functions over classes, clean pattern matching over fragile ifs and virtual dispatches, proper data modeling over string abuse, etc. JavaScript supersets will only grow larger over time; ReScript doesn&apos;t.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;On github wiki,&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Our main goal is to provide the best compiler targeting JS platform.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So utimately ReScript is just a compile source for JavaScript that might help you improve quality of the code and the developer experience. Let&apos;s try to writing some simple programs with it.&lt;/p&gt;
+&lt;h2&gt;Code&lt;/h2&gt;
+&lt;h3&gt;Hello World&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;let f = (name) =&gt; Js.log(&quot;hello &quot; ++ name);
+
+f() // ---------&gt; compiler error!
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;  We&apos;ve found a bug for you!
+  /home/andyan/Desktop/code/LEARN/rescript-101/src/helloWorld.re 3:2-3
+
+  1 │ let f = (name) =&gt; Js.log(&quot;hello &quot; ++ name);
+  2 │
+  3 │ f()
+
+  This has type:
+    unit
+  But somewhere wanted:
+    string
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notice that here ReScript knows that name is supposed to be a string (type inference), and tell us what we should do. In TypeScript, compiler would have complained that &lt;code&gt;Parameter &apos;name&apos; implicitly has an &apos;any&apos; type&lt;/code&gt; and force you to give a type to name, which is kind of dumb in my option.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Type support for JS: When and Why]]></title><description><![CDATA[Problem If you write JavaScript, the most common error is very likely to be something along the lines of "Cannot read property 'foo' of…]]></description><link>https://andyan.dev/type-javascript/</link><guid isPermaLink="false">https://andyan.dev/type-javascript/</guid><pubDate>Wed, 26 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;Problem&lt;/h2&gt;
 &lt;p&gt;If you write JavaScript, the most common error is very likely to be something along the lines of &lt;code&gt;&quot;Cannot read property &apos;foo&apos; of undefined&quot;&lt;/code&gt;. This happens probably when you try to access &lt;code&gt;foo&lt;/code&gt; attribute on an undefined variable (that you assumed should be defined).&lt;/p&gt;
 &lt;p&gt;In fact, &lt;a href=&quot;https://rollbar.com/blog/top-10-javascript-errors/&quot;&gt;7 out of 10 most common JavaScript errors are type errors&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Some of these errors has happened to me a million times and every time it happens, I almost know why it happened but cannot pinpoint the issue. It takes me between 10 seconds to 10 mins to figure out where the error comes from depending on the size of the code base. 10 seconds to 10 mins might not seem like a lot of time but it gets worse when the code base is large and logic is complex.&lt;/p&gt;
