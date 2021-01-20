@@ -1,0 +1,1 @@
+_N_E=(window.webpackJsonp_N_E=window.webpackJsonp_N_E||[]).push([[14],{"20a2":function(n,e,t){n.exports=t("nOHt")},RNiq:function(n,e,t){"use strict";t.r(e);var u=t("20a2");e.default=function(){return Object(u.useRouter)().push("/experience"),""}},vlRD:function(n,e,t){(window.__NEXT_P=window.__NEXT_P||[]).push(["/",function(){return t("RNiq")}])}},[["vlRD",0,2,1]]]);
